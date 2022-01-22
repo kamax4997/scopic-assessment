@@ -3,8 +3,8 @@ import Car from '../../src/car-rental-bug-fixing/Car';
 import Customer from '../../src/car-rental-bug-fixing/Customer';
 import Rental from '../../src/car-rental-bug-fixing/Rental';
 
-describe('CRS-002', function () {
-    test('If car 1, car 2, and car 3 are rented, the total fees must be 730', async function () {
+describe('CRS-003', function () {
+    test('If car 1, 2, and 3 is rented, the detailed fee must be array of strings', async function () {
         const car1 = new Car(1, 'Toyoda');
         const car2 = new Car(2, 'Mercedes‑Benz');
         const car3 = new Car(3, 'Audi');
@@ -13,8 +13,11 @@ describe('CRS-002', function () {
         const customer = new Customer('CRS', []);
         customer.addRental(rental1);
         customer.addRental(rental2);
-        let fee = await customer.getTotalFees();
-        return expect(fee).toBe("Customer CRS's total fees is 730");
+        let fee = await customer.getDetailedFees();
+        return expect(fee).toStrictEqual([
+            'Fees for Rental Number 1 is 340',
+            'Fees for Rental Number 2 is 390',
+        ]);
     });
 
 });
