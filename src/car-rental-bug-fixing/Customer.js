@@ -11,10 +11,10 @@ export default class Customer {
         this.rentals.push(rental);
     }
 
-    getTotalFees() {
+    async getTotalFees() {
         let totalFees = 0;
         for (let i = 0; i < this.rentals.length; i++) {
-            totalFees += this.rentals[i].getFees();
+            totalFees += await this.rentals[i].getFees();
         }
 
         return `Customer ${this.name}'s total fees is ${totalFees}`;
