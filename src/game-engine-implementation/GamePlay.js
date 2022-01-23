@@ -22,5 +22,19 @@ export const Config = {
 
 export default class GamePlay {
     static fight(firstCharacter, secondCharacter) {
+        if (firstCharacter?.lifes === 2 || secondCharacter?.lifes === 2) {
+            console.log("-", firstCharacter.health, secondCharacter.health);
+            let i = 0;
+            while (firstCharacter.health > 0 && secondCharacter.health > 0) {
+                console.log("--", firstCharacter.health, secondCharacter.health);
+                if (i % 2 === 0) {
+                    firstCharacter.attack(secondCharacter);
+                } else {
+                    secondCharacter.attack(firstCharacter);
+                }
+                console.log(i, firstCharacter.health, secondCharacter.health);
+                i++;
+            }
+        }
     }
 }
