@@ -8,16 +8,11 @@ export default class Character {
     isDead;
 
     constructor(level) {
-        this.level = level;
-        this.health = this.maxHealth;
         this.isDead = false;
     }
 
     attack(character) {
         character.takeAHit(this.hitDamage);
-        // if (character.health <= 0 && character.lifes === 0) {
-        //     this.win(character);
-        // }
     }
 
     takeAHit(damage) {

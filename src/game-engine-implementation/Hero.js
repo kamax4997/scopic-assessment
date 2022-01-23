@@ -7,10 +7,10 @@ export default class Hero extends Character {
 
     constructor(level) {
         super();
-        this.maxHealth = level * Config.hero.maxHealth;
-        this.health = this.maxHealth;
         this.level = level;
-        this.hitDamage = level * Config.hero.hitDamage;
+        this.maxHealth = this.level * Config.hero.maxHealth;
+        this.hitDamage = this.level * Config.hero.hitDamage;
+        this.health = this.maxHealth;
         this.lifes = 2;
     }
 

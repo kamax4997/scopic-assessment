@@ -19,7 +19,7 @@ describe('GE-sample-simple-fight', function () {
     test('If hero has more than one life, hero revives, No level up', () => {
         const hero = new Hero(2);
         const boss = new Boss(2);
-
+        
         GamePlay.fight(hero, boss);
 
         expect(hero.health).toBe(140);
