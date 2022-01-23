@@ -11,6 +11,13 @@ export default class Character {
         this.isDead = false;
     }
 
+    init(type, level) {
+        this.level = level;
+        this.maxHealth = this.level * Config[type].maxHealth;
+        this.hitDamage = this.level * Config[type].hitDamage;
+        this.health = this.maxHealth;
+    }
+
     attack(character) {
         character.takeAHit(this.hitDamage);
     }
